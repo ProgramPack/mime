@@ -18,12 +18,11 @@ setup:
 	echo "Done!"
 update_database:
 	update-mime-database $(BASICMIMEFOLDER)
-	ifneq ($(shell id -u), 0)
+	if ! [ "$(shell id -u)" = 0 ]; then
 		echo "Not root: didn\'t update the /usr/share/mime database"
 	else
 		update-mime-database /usr/share/mime
 		echo "Is root: updated the /usr/share/mime database"
-	endif
 	echo "Database updated"
 associate:
 	echo $(DATA)>"$(APPSFOLDER)/mimeapps.list"
