@@ -45,5 +45,5 @@ update_database:
 	echo "Database(s) updated"
 associate:
 	echo 'Associating types...'
-	echo $(DATA)>"$(APPSFOLDER)/mimeapps.list"
+	echo "$(DATA)">"$(APPSFOLDER)/mimeapps.list"
 	echo 'Type associated'
