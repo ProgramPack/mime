@@ -1,8 +1,8 @@
 name: Copy desktop & mimetype
 
 on:
-  workflow_run:
-      workflows: [Copy desktop & mimetype]
+  workflow_dispatch:
+      # ...
   push:
     branches: [ "main" ]
   pull_request:
