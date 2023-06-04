@@ -19,7 +19,7 @@ _create_dirs:
 	echo "Directories created"
 setup:
 	echo "Starting..."
-	_create_dirs
+	$(MAKE) _create_dirs
 	cp "desktop/ProgramPackLauncher.desktop" "$(LAUNCHER_FILE)"
 	echo "Application .desktop file copied"
 	cp "mimetype/programpack-extension.xml" "$(MIME_FILE)"
@@ -27,7 +27,7 @@ setup:
 	echo "Done!"
 uninstall:
 	echo "Starting to uninstall..."
-	_create_dirs
+	$(MAKE) _create_dirs
 	rm -f "$(LAUNCHER_FILE)"
 	rm -f "$(MIME_FILE)"
 update_database:
