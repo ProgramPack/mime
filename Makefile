@@ -17,8 +17,10 @@ setup:
 	echo "Mimetype copied"
 	echo "Done!"
 update_database:
-	update-mime-database /usr/share/mime
 	update-mime-database $(BASICMIMEFOLDER)
+	ifeq ($(shell id -u), 0)
+		update-mime-database /usr/share/mime
+	endif
 	echo "Database updated"
 associate:
 	echo $(DATA)>"$(APPSFOLDER)/mimeapps.list"
