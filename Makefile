@@ -3,7 +3,8 @@ SHELL := /usr/bin/env bash
 APPSFOLDER = $(HOME)/.local/share/applications
 BASICMIMEFOLDER = $(HOME)/.local/share/mime/
 MIMESFOLDER = $(BASICMIMEFOLDER)packages
-DATA = "custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
+DATA = "[Added Associations]
+custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
 IS_ROOT = $(shell id -u)
 
 setup:
