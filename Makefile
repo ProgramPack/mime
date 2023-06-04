@@ -1,4 +1,4 @@
-.SILENT: setup
+.SILENT: setup update_database associate
 SHELL := /usr/bin/env bash
 APPSFOLDER = $(HOME)/.local/share/applications
 BASICMIMEFOLDER = $(HOME)/.local/share/mime/
