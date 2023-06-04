@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ProgramPack Launcher
+Name[ru]=Запуск приложения ProgramPack
+Description=Start your application
+Descrpition[ru]=Запустите ваше приложение
+Exec=/usr/bin/env -S python3 -m programpack run --virtual
+Terminal=true
+Icon=xfce4-settings
+Type=Application
+Categories=Programming;
