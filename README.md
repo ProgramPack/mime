@@ -5,7 +5,8 @@ Run the following command in the terminal:
 ```bash
 git clone https://github.com/ProgramPack/mime.git && mv mime programpack-mimes
 cd programpack-mimes
-make setup && make update_database && make associate
+chmod 777 run_all.sh
+./run_all.sh
 cd ..
 true && rm -rf programpack-mimes # Change "true" to false if you want to keep the directory
 ```

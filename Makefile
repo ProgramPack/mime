@@ -4,6 +4,7 @@ APPSFOLDER = $(HOME)/.local/share/applications
 BASICMIMEFOLDER = $(HOME)/.local/share/mime/
 MIMESFOLDER = $(BASICMIMEFOLDER)packages
 DATA = "custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
+IS_ROOT = $(shell id -u)
 
 setup:
 	echo "Starting..."
@@ -18,11 +19,12 @@ setup:
 	echo "Done!"
 update_database:
 	update-mime-database $(BASICMIMEFOLDER)
-	if ! [ "$(shell id -u)" = 0 ]; then
-		echo "Not root: didn\'t update the /usr/share/mime database"
-	else
-		update-mime-database /usr/share/mime
-		echo "Is root: updated the /usr/share/mime database"
+	if [ $(IS_ROOT) == 0 ]; then \
+		update-mime-database /usr/share/mime; \
+		echo "Is root: updated the /usr/share/mime database"; \
+	else \
+		echo "Not root: didn't update the /usr/share/mime database"; \
+	fi
 	echo "Database updated"
 associate:
 	echo $(DATA)>"$(APPSFOLDER)/mimeapps.list"
