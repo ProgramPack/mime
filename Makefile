@@ -3,8 +3,10 @@ SHELL := /usr/bin/env bash
 APPSFOLDER = $(HOME)/.local/share/applications
 BASICMIMEFOLDER = $(HOME)/.local/share/mime/
 MIMESFOLDER = $(BASICMIMEFOLDER)packages
-DATA = "[Added Associations]\n\
-custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
+define DATA
+[Added Associations]
+custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop
+endef
 IS_ROOT = $(shell id -u)
 LAUNCHER_FILE = "$(APPSFOLDER)/ProgramPackLauncher.desktop"
 MIME_FILE = "$(MIMESFOLDER)/x-programpack-extension.xml"
