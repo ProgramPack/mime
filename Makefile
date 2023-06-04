@@ -1,7 +1,7 @@
 .SILENT: setup
 SHELL := /usr/bin/env bash
-APPSFOLDER = $HOME/.local/share/applications
-MIMESFOLDER = $HOME/.local/share/mime/packages
+APPSFOLDER = $(HOME)/.local/share/applications
+MIMESFOLDER = $(HOME)/.local/share/mime/packages
 
 setup:
 	echo "Starting..."
