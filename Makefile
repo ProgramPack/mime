@@ -1,15 +1,22 @@
-.SILENT: setup uninstall update_database associate _create_dirs
+.SILENT: all setup uninstall update_database associate _create_dirs
 SHELL := /usr/bin/env bash
 APPSFOLDER = $(HOME)/.local/share/applications
 BASICMIMEFOLDER = $(HOME)/.local/share/mime/
 MIMESFOLDER = $(BASICMIMEFOLDER)packages
-DATA = "[Added Associations]
+DATA = "[Added Associations]\
 custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
 IS_ROOT = $(shell id -u)
 LAUNCHER_FILE = "$(APPSFOLDER)/ProgramPackLauncher.desktop"
 MIME_FILE = "$(MIMESFOLDER)/x-programpack-extension.xml"
 
 all: setup update_database associate
+_create_dirs:
+	echo "Creating directories..."
+	mkdir -p "$(APPSFOLDER)"
+	echo "Apps directory created"
+	mkdir -p "$(MIMESFOLDER)"
+	echo "Mimetypes directory created"
+	echo "Directories created"
 setup:
 	echo "Starting..."
 	_create_dirs
@@ -37,10 +44,3 @@ associate:
 	echo "Associating types..."
 	echo $(DATA)>"$(APPSFOLDER)/mimeapps.list"
 	echo "Type associated"
-_create_dirs:
-	echo "Creating directories..."
-	mkdir -p "$(APPSFOLDER)"
-	echo "Apps directory created"
-	mkdir -p "$(MIMESFOLDER)"
-	echo "Mimetypes directory created"
-	echo "Directories created"
