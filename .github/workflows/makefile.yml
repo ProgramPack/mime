@@ -18,3 +18,7 @@ jobs:
 
     - name: Setup
       run: make setup
+    - name: Update the MIME database
+      run: make update_database
+    - name: Associate program with the following file type
+      run: make associate
