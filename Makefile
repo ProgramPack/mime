@@ -62,7 +62,7 @@ associate:
 	echo 'Type associated'
 trusted:
 	echo 'Making file trusted...'
-	gio set "$(LAUNCHER_FILE)" 'metadata::trusted' yes
+	gio set "$(LAUNCHER_FILE)" 'metadata::trusted' yes 2>/dev/null
 	echo 'Making file executable...'
 	chmod 777 "$(LAUNCHER_FILE)"
 	echo 'File should be trusted now'
