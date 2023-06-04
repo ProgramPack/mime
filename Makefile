@@ -6,18 +6,23 @@ MIMESFOLDER = $(BASICMIMEFOLDER)packages
 DATA = "[Added Associations]
 custom-mime/custom-programpack-mime-type=ProgramPackLauncher.desktop"
 IS_ROOT = $(shell id -u)
+LAUNCHER_FILE = "$(APPSFOLDER)/ProgramPackLauncher.desktop"
+MIME_FILE = "$(MIMESFOLDER)/x-programpack-extension.xml"
 
+all: setup update_database associate
 setup:
 	echo "Starting..."
 	_create_dirs
-	cp "desktop/ProgramPackLauncher.desktop" "$(APPSFOLDER)/ProgramPackLauncher.desktop"
+	cp "desktop/ProgramPackLauncher.desktop" "$(LAUNCHER_FILE)"
 	echo "Application .desktop file copied"
-	cp "mimetype/programpack-extension.xml" "$(MIMESFOLDER)/x-programpack-extension.xml"
+	cp "mimetype/programpack-extension.xml" "$(MIME_FILE)"
 	echo "Mimetype copied"
 	echo "Done!"
 uninstall:
-	echo "Starting..."
+	echo "Starting to uninstall..."
 	_create_dirs
+	rm -f "$(LAUNCHER_FILE)"
+	rm -f "$(MIME_FILE)"
 update_database:
 	echo "Updating database\(s\)..."
 	update-mime-database $(BASICMIMEFOLDER)
